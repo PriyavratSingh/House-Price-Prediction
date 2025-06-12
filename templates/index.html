@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🏡 House Price Prediction</h1>
+        <p>Enter the details below to estimate the price of a house:</p>
+
+        <form action="/predict" method="post">
+            <div class="form-grid">
+                <input type="number" step="any" name="CRIM" placeholder="Crime Rate" required>
+                <input type="number" step="any" name="ZN" placeholder="Zoning Classification" required>
+                <input type="number" step="any" name="INDUS" placeholder="Industrial Area Proportion" required>
+                <input type="number" step="any" name="CHAS" placeholder="Near Charles River (1 or 0)" required>
+                <input type="number" step="any" name="NOX" placeholder="Nitrogen Oxides Concentration" required>
+                <input type="number" step="any" name="RM" placeholder="Avg Rooms per Dwelling" required>
+                <input type="number" step="any" name="AGE" placeholder="Proportion of Owner-Occupied Units" required>
+                <input type="number" step="any" name="DIS" placeholder="Distance to Employment Centers" required>
+                <input type="number" step="any" name="RAD" placeholder="Accessibility to Highways" required>
+                <input type="number" step="any" name="TAX" placeholder="Property Tax Rate" required>
+                <input type="number" step="any" name="PTRATIO" placeholder="Pupil-Teacher Ratio" required>
+                <input type="number" step="any" name="B" placeholder="Proportion of Black Residents" required>
+                <input type="number" step="any" name="LSTAT" placeholder="Percentage of Lower-Status Population" required>
+            </div>
+            
+            <button type="submit">🔍 Predict Price</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result">
+                <h2>🏠 Estimated Price</h2>
+                <p>{{ prediction_text }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
